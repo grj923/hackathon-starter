@@ -38,18 +38,15 @@ class Messages extends React.Component {
     });
   };
 
-  deleteMessageHandler = () => {
-    this.props.deleteMessage().then(() => {
+  deleteMessageHandler = (id) => {
+    this.props.deleteMessage(id).then(() => {
       this.fetchMessages();
     });
   };
 
-  addLikeHandler = () => {
-    this.props.addLike().then(() => {
+  addLikeHandler = (likes) => {
+    this.props.addLike(likes).then(() => {
       this.fetchMessages();
-      this.setState({
-        image: "♥",
-      });
     });
   };
 
@@ -65,14 +62,16 @@ class Messages extends React.Component {
     let display = <div>No Messages Found</div>;
     if (this.state.messages) {
       display = this.state.messages.map((value) => {
-        console.log(value.id);
+        console.log(value.likes);
         return (
           <li key={value.id}>
             {value.text}
-            <button onClick={() => this.deleteMessageHandler}>
+            <button onClick={() => this.deleteMessageHandler(value.id)}>
               Delete Messages
             </button>
-            <button onClick={this.addLikeHandler}>Like Message</button>
+            <button onClick={() => this.addLikeHandler(value.likes)}>
+              Like Message
+            </button>
           </li>
         );
       });
