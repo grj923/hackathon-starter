@@ -55,18 +55,15 @@ class Messages extends React.Component {
     }
 
     return (
-      <div className="Main">
-        <div className="username">{this.props.username}</div>
-        <div className="Messages">
-          <div className="NewMessage">
-            <input
-              name="message"
-              onChange={this.handleChange}
-              value={this.state.message}
-            />
-            <button onClick={this.newMessageHandler}> Send Message </button>
-          </div>
-          <div className="ListMessage">{display}</div>
+      <div className="Messages">
+        <div className="ListMessage">{display}</div>
+        <div className="NewMessage">
+          <input
+            name="message"
+            onChange={this.handleChange}
+            value={this.state.message}
+          />
+          <button onClick={this.newMessageHandler}> Send Message </button>
         </div>
       </div>
     );
