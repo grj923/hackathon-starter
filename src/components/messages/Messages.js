@@ -66,12 +66,20 @@ class Messages extends React.Component {
         return (
           <li key={value.id}>
             {value.text}
-            <button onClick={() => this.deleteMessageHandler(value.id)}>
-              Delete Messages
-            </button>
-            <button onClick={() => this.addLikeHandler(value.likes)}>
-              Like Message
-            </button>
+            <br />
+            <br />
+            <div className="delete">
+              <button onClick={() => this.deleteMessageHandler(value.id)}>
+                Delete
+              </button>
+            </div>
+            <div className="like">
+              <button onClick={() => this.addLikeHandler(value.likes)}>
+                Like
+              </button>
+              <br />
+              <br />
+            </div>
           </li>
         );
       });
